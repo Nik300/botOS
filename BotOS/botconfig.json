@@ -1,0 +1,20 @@
+{
+  "platforms": {
+    "telegram": {
+      "access": {
+        "token": "${TG_TOKEN}"
+      }
+    }
+  },
+  "bot": {
+    "version": "4.0.0",
+    "name": "BotOS",
+    "author": "NLC (aka Nik300 aka Falco131)",
+    "description": "Welcome to BotOS 4! This is a new beginning for this awesome project.",
+    "license": "GNU-GPL",
+    "repository": "https://github.com/Nik300/botos"
+  },
+  "options": {
+    "prefix": "!"
+  }
+}
