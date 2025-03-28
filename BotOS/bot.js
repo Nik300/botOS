@@ -21,7 +21,7 @@ app.on("telegram.ready", (_ctx, next) => {
 cmdParser(app, config);
 
 // Register commands
-app.on("bot/commands/start", ({message, replyMsg}, next) => {
-  replyMsg.edit("Hello!");
+app.on("bot/commands/ver", ({message, replyMsg}, next) => {
+  replyMsg.edit(`🤖 On this bot is installed ${config.bot.name} version ${config.bot.version}`);
   return next();
 });
