@@ -1,5 +1,9 @@
 {
   "dependencies": {
     "typescript": "^5.8.2"
+  },
+  "scripts": {
+    "build": "tsc -p ./BotOS && cp -r ./BotOS/plugins ./BotOS/dist/plugins && cp -r ./BotOS/botconfig.json ./BotOS/dist/botconfig.json",
+    "start": "botgf -p ./BotOS/dist -e ./venv/.env -v"
   }
 }
