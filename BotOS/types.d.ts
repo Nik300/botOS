@@ -2,12 +2,12 @@ interface Context {
   [key: string]: any;
 }
 type Middleware = (ctx: Context, next: () => void) => void;
-type Event = string;
+type BotEvent = string;
 
 interface App {
   use(middleware: Middleware[]): App;
-  on(event: Event, ...middlewares: Middleware[]): App;
-  trigger(event: Event, ctx: Context): App;
+  on(event: BotEvent, ...middlewares: Middleware[]): App;
+  trigger(event: BotEvent, ctx: Context): App;
   register(...bots: any[]): App;
 }
 declare const app: App;
@@ -36,3 +36,6 @@ interface CLIOptions {
   readonly MainModule?: string;
 }
 declare const options: CLIOptions;
+declare function plugin(name: string): any;
+declare function require(path: string): any;
+declare let exports: any;
