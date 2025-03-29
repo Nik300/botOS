@@ -1,4 +1,5 @@
-import type TelegramSupport from "@/types/telegramSupport";
+import type { TelegramSupport } from "@/types/telegramSupport";
+import type { CommandCtx } from "@/types/commands";
 
 const telegram: TelegramSupport = plugin("TelegramSupport");
 app.register(telegram.createBot(config));
@@ -21,7 +22,7 @@ app.on("telegram.ready", (_ctx, next) => {
 cmdParser(app, config);
 
 // Register commands
-app.on("bot/commands/ver", ({message, replyMsg}, next) => {
+app.on("bot/commands/ver", ({ message, replyMsg }: CommandCtx, next) => {
   replyMsg.edit(`🤖 On this bot is installed ${config.bot.name} version ${config.bot.version}`);
   return next();
 });

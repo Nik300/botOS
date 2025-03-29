@@ -1,5 +1,3 @@
-interface TelegramSupport extends BotPlugin {
+export interface TelegramSupport extends BotPlugin {
   createBot: (config: BotConfig) => Bot;
 }
-
-export default TelegramSupport;

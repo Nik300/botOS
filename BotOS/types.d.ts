@@ -3,13 +3,13 @@ declare module "botOS" {
     interface Context {
       [key: string]: any;
     }
-    type Middleware = (ctx: Context, next: () => void) => void;
+    type Middleware<ContextType> = (ctx: Context & ContextType, next: () => void) => void;
     type BotEvent = string;
 
     interface App {
-      use(middleware: Middleware[]): App;
-      on(event: BotEvent, ...middlewares: Middleware[]): App;
-      trigger(event: BotEvent, ctx: Context): App;
+      use<ContextType>(middleware: Middleware<ContextType>[]): App;
+      on<ContextType>(event: BotEvent, ...middlewares: Middleware<ContextType>[]): App;
+      trigger<ContextType>(event: BotEvent, ctx: ContextType): App;
       register(...bots: Bot[]): App;
     }
     const app: App;
@@ -49,6 +49,14 @@ declare module "botOS" {
     export interface Bot {
       // Bot methods/properties
       // Add required properties
+    }
+
+    export interface Message {
+      text: string;
+      id: string;
+      content: any;
+      delete: () => Promise<boolean>;
+      edit: (text: string) => Promise<Message | undefined>;
     }
   }
 }
