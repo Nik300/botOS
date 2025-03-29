@@ -5,13 +5,15 @@
         "outDir": "./dist",
         "rootDir": "./src",
         "strict": true,
+        "baseUrl": ".",
         "types": [ "./types.d.ts" ],
         "paths": {
-            "@/*": ["./src/*"]
+            "@/*": ["./src/*"],
+            "@/types/*": ["./types/*"]
         }
     },
     "include": [
-        "./src/**/*",
-        "./types.d.ts"
+        "./types.d.ts",
+        "./src/**/*"
     ]
 }

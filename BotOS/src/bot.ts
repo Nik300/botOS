@@ -1,4 +1,6 @@
-const telegram = plugin("TelegramSupport");
+import type TelegramSupport from "@/types/telegramSupport";
+
+const telegram: TelegramSupport = plugin("TelegramSupport");
 app.register(telegram.createBot(config));
 
 const cmdParser = require("./services/cmd-parser.js");
