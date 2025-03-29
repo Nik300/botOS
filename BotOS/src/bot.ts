@@ -5,7 +5,7 @@ app.register(telegram.createBot(config));
 
 const cmdParser = require("./services/cmd-parser.js");
 
-const welcome = `Hi! Welcome to BotOS ${config.bot.version}.`;
+const welcome = `Hi! Welcome to ${config.bot.name} ${config.bot.version}.`;
 
 app.on("ready", (_ctx, next) => {
   console.log(welcome);
